@@ -50,6 +50,8 @@ DOMAIN-SUFFIX,xiaoxintv.cc
 DOMAIN-SUFFIX,69yun.top
 DOMAIN-SUFFIX,nivodi.com
 DOMAIN-SUFFIX,v2raya.org
+DOMAIN-SUFFIX,speedtest.net
+DOMAIN-SUFFIX,fast.com
 
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve
