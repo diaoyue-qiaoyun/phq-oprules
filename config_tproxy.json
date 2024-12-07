@@ -9,7 +9,7 @@
     "clash_api": {
       "external_controller": "0.0.0.0:9095",
       "external_ui": "/etc/sing-box/ui",
-      "secret": "",
+      "secret": "Daleng7019~",
       "external_ui_download_url": "https://ghp.ci/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "🎯 全球直连",
       "default_mode": "rule"
@@ -77,7 +77,7 @@
     { "tag": "kr 韩国节点", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["广韩|韩国|KR|首尔|春川|🇰🇷|Korea|Incheon"] }] },
     { "tag": "tw 台湾节点", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["广台|台湾|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan"] }] },
     { "tag": "ot 其他节点", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["柬埔|斯坦|尼泊|也纳|克兰|比利时|尔兰|立陶宛|冰岛|秘鲁|耳其|利亚|埃及|希腊|斯洛伐克|孟加|芬兰|阿联|英国|德国|南非|意大|法国|加拿|墨西|印度|越南|罗斯|瑞士|瑞典|智利|荷兰|比亚|巴西|沙特|班牙|泰国"] }] }, 
-    { "tag": "🔯 香港自动", "type": "urltest", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong|Hongkong"] }], "url": "http://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 50 },
+    { "tag": "🔯 香港自动", "type": "urltest", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong|Hongkong"] }, { "action": "exclude", "keywords": ["0.1|0.2|0.3|0.4|0.5"] }], "url": "http://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 50 },
     { "tag": "♻️ 自动选择", "type": "urltest", "outbounds": ["{all}"], "filter": [{ "action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"] }], "url": "http://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 50 },
     { "tag": "GLOBAL", "type": "selector", "outbounds": ["{all}"]},
     { "tag": "🎯 全球直连", "type": "direct" },
