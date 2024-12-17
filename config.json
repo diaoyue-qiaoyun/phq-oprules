@@ -1,0 +1,1653 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "0.0.0.0:9095",
+      "external_ui": "/etc/sing-box/ui",
+      "secret": "",
+      "external_ui_download_url": "https://ghp.ci/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "🎯 全球直连",
+      "default_mode": "rule"
+    },
+    "cache_file": {
+      "enabled": true,
+      "path": "/etc/sing-box/cache.db",
+      "store_fakeip": false
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxyDns",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "defaultDns",
+        "address_strategy": "ipv4_only",
+        "detour": "🚀 节点选择"
+      },
+      {
+        "tag": "localDns",
+        "address": "223.5.5.5",
+        "address_resolver": "defaultDns",
+        "address_strategy": "ipv4_only",
+        "detour": "🎯 全球直连"
+      },
+      {
+        "tag": "defaultDns",
+        "address": "223.5.5.5",
+        "address_strategy": "ipv4_only",
+        "detour": "🎯 全球直连"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "defaultDns",
+        "disable_cache": true
+      },
+      {
+        "clash_mode": "direct",
+        "server": "localDns"
+      },
+      {
+        "clash_mode": "global",
+        "server": "proxyDns"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "localDns"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "server": "proxyDns"
+      }
+    ],
+    "final": "localDns",
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tproxy",
+      "tag": "tproxy-in",
+      "listen": "0.0.0.0",
+      "listen_port": 7895,
+      "sniff": true,
+      "sniff_override_destination": false
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "users": []
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "🚀 节点选择",
+      "type": "selector",
+      "outbounds": [
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换",
+        "♻️ 自动选择",
+        "🎯 全球直连"
+      ]
+    },
+    {
+      "tag": "📹 YouTube",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "🤖 OpenAI",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "🍀 Google",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "👨‍💻 Github",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "🪟 Microsoft",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🎯 全球直连"
+      ]
+    },
+    {
+      "tag": "🐬 OneDrive",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "🎵 TikTok",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "🎥 Netflix",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "📲 Telegram",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动",
+        "🐸 手动切换"
+      ]
+    },
+    {
+      "tag": "🍏 Apple",
+      "type": "selector",
+      "outbounds": [
+        "🎯 全球直连",
+        "🔯 香港自动",
+        "🔯 日韩自动",
+        "🔯 新台自动",
+        "🔯 美国自动"
+      ]
+    },
+    {
+      "tag": "🐠 漏网之鱼",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连"
+      ]
+    },
+    {
+      "tag": "🐸 手动切换",
+      "type": "selector",
+      "outbounds": [
+        "建议每次使用前都更新一下订阅",
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇹🇼 🇨🇳台湾1-Gpt",
+        "🇹🇼 🇨🇳台湾2-Gpt",
+        "🇹🇼 🇨🇳台湾3-Gpt",
+        "🇯🇵 日本1",
+        "🇰🇷 韩国首尔",
+        "🇰🇷 韩国春川",
+        "🇺🇸 拉斯维加斯",
+        "🇺🇸 纽约",
+        "🇺🇸 凤凰城",
+        "🇭🇰 香港01-IPv6",
+        "🇭🇰 香港02-IPv6",
+        "🇭🇰 香港03-IPv6",
+        "🇭🇰 香港04-0.5x",
+        "🇭🇰 香港05-IPv6",
+        "🇭🇰 香港06-IPv6",
+        "🇭🇰 香港07-IPv6",
+        "🇭🇰 香港08-0.5x",
+        "🇭🇰 香港09-奈飞",
+        "🇭🇰 香港10-奈飞",
+        "🇭🇰 香港11-奈飞",
+        "🇭🇰 香港12-0.5x",
+        "🇸🇬 新加坡01",
+        "🇸🇬 新加坡02",
+        "🇸🇬 新加坡03-0.5x",
+        "🇸🇬 新加坡04",
+        "🇸🇬 新加坡05",
+        "🇸🇬 新加坡06-0.5x",
+        "🇰🇷 韩国首尔01",
+        "🇰🇷 韩国首尔02",
+        "🇰🇷 韩国春川03",
+        "🇰🇷 韩国春川04",
+        "🇰🇷 韩国春川05-0.5x",
+        "🇹🇼 🇨🇳台湾01-Gpt",
+        "🇹🇼 🇨🇳台湾02-Gpt",
+        "🇹🇼 🇨🇳台湾03-Gpt",
+        "🇹🇼 🇨🇳台湾04-Gpt",
+        "🇯🇵 东京01",
+        "🇯🇵 东京02",
+        "🇯🇵 日本03",
+        "🇯🇵 日本04",
+        "🇨🇦 加拿大01",
+        "🇨🇦 加拿大02",
+        "🇺🇸 纽约01",
+        "🇺🇸 纽约02",
+        "🇺🇸 纽约03",
+        "🇺🇸 拉斯维加斯01",
+        "🇺🇸 拉斯维加斯02",
+        "🇺🇸 凤凰城01",
+        "🇺🇸 凤凰城02",
+        "🇺🇸 凤凰城03",
+        "🇺🇸 凤凰城04",
+        "🇺🇸 凤凰城05",
+        "🇺🇸 纽约01-下载&防失联-0.1X",
+        "🇺🇸 纽约02-下载&防失联-0.1X",
+        "🇺🇸 纽约03-下载&防失联-0.1X",
+        "🇺🇸 纽约04-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯01-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯02-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯03-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯04-下载&防失联-0.1X"
+      ]
+    },
+    {
+      "tag": "🇭🇰 香港节点",
+      "type": "selector",
+      "outbounds": [
+        "🇭🇰 香港01-IPv6",
+        "🇭🇰 香港02-IPv6",
+        "🇭🇰 香港03-IPv6",
+        "🇭🇰 香港04-0.5x",
+        "🇭🇰 香港05-IPv6",
+        "🇭🇰 香港06-IPv6",
+        "🇭🇰 香港07-IPv6",
+        "🇭🇰 香港08-0.5x",
+        "🇭🇰 香港09-奈飞",
+        "🇭🇰 香港10-奈飞",
+        "🇭🇰 香港11-奈飞",
+        "🇭🇰 香港12-0.5x"
+      ]
+    },
+    {
+      "tag": "🇯🇵 日本节点",
+      "type": "selector",
+      "outbounds": [
+        "🇯🇵 日本1",
+        "🇯🇵 东京01",
+        "🇯🇵 东京02",
+        "🇯🇵 日本03",
+        "🇯🇵 日本04"
+      ]
+    },
+    {
+      "tag": "🇺🇲 美国节点",
+      "type": "selector",
+      "outbounds": [
+        "🇺🇸 拉斯维加斯",
+        "🇺🇸 纽约",
+        "🇺🇸 凤凰城",
+        "🇺🇸 纽约01",
+        "🇺🇸 纽约02",
+        "🇺🇸 纽约03",
+        "🇺🇸 拉斯维加斯01",
+        "🇺🇸 拉斯维加斯02",
+        "🇺🇸 凤凰城01",
+        "🇺🇸 凤凰城02",
+        "🇺🇸 凤凰城03",
+        "🇺🇸 凤凰城04",
+        "🇺🇸 凤凰城05"
+      ]
+    },
+    {
+      "tag": "sg 新加坡节点",
+      "type": "selector",
+      "outbounds": [
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇸🇬 新加坡01",
+        "🇸🇬 新加坡02",
+        "🇸🇬 新加坡03-0.5x",
+        "🇸🇬 新加坡04",
+        "🇸🇬 新加坡05",
+        "🇸🇬 新加坡06-0.5x"
+      ]
+    },
+    {
+      "tag": "kr 韩国节点",
+      "type": "selector",
+      "outbounds": [
+        "🇰🇷 韩国首尔",
+        "🇰🇷 韩国春川",
+        "🇰🇷 韩国首尔01",
+        "🇰🇷 韩国首尔02",
+        "🇰🇷 韩国春川03",
+        "🇰🇷 韩国春川04",
+        "🇰🇷 韩国春川05-0.5x"
+      ]
+    },
+    {
+      "tag": "tw 台湾节点",
+      "type": "selector",
+      "outbounds": [
+        "🇹🇼 🇨🇳台湾1-Gpt",
+        "🇹🇼 🇨🇳台湾2-Gpt",
+        "🇹🇼 🇨🇳台湾3-Gpt",
+        "🇹🇼 🇨🇳台湾01-Gpt",
+        "🇹🇼 🇨🇳台湾02-Gpt",
+        "🇹🇼 🇨🇳台湾03-Gpt",
+        "🇹🇼 🇨🇳台湾04-Gpt"
+      ]
+    },
+    {
+      "tag": "ot 其他节点",
+      "type": "selector",
+      "outbounds": [
+        "🇨🇦 加拿大01",
+        "🇨🇦 加拿大02"
+      ]
+    },
+    {
+      "tag": "🔯 香港自动",
+      "type": "urltest",
+      "outbounds": [
+        "🇭🇰 香港01-IPv6",
+        "🇭🇰 香港02-IPv6",
+        "🇭🇰 香港03-IPv6",
+        "🇭🇰 香港05-IPv6",
+        "🇭🇰 香港06-IPv6",
+        "🇭🇰 香港07-IPv6",
+        "🇭🇰 香港09-奈飞",
+        "🇭🇰 香港10-奈飞",
+        "🇭🇰 香港11-奈飞"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "tag": "🔯 日韩自动",
+      "type": "urltest",
+      "outbounds": [
+        "🇯🇵 日本1",
+        "🇰🇷 韩国首尔",
+        "🇰🇷 韩国春川",
+        "🇰🇷 韩国首尔01",
+        "🇰🇷 韩国首尔02",
+        "🇰🇷 韩国春川03",
+        "🇰🇷 韩国春川04",
+        "🇯🇵 东京01",
+        "🇯🇵 东京02",
+        "🇯🇵 日本03",
+        "🇯🇵 日本04"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "tag": "🔯 新台自动",
+      "type": "urltest",
+      "outbounds": [
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇹🇼 🇨🇳台湾1-Gpt",
+        "🇹🇼 🇨🇳台湾2-Gpt",
+        "🇹🇼 🇨🇳台湾3-Gpt",
+        "🇸🇬 新加坡01",
+        "🇸🇬 新加坡02",
+        "🇸🇬 新加坡04",
+        "🇸🇬 新加坡05",
+        "🇹🇼 🇨🇳台湾01-Gpt",
+        "🇹🇼 🇨🇳台湾02-Gpt",
+        "🇹🇼 🇨🇳台湾03-Gpt",
+        "🇹🇼 🇨🇳台湾04-Gpt"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "tag": "🔯 美国自动",
+      "type": "urltest",
+      "outbounds": [
+        "🇺🇸 拉斯维加斯",
+        "🇺🇸 纽约",
+        "🇺🇸 凤凰城",
+        "🇺🇸 纽约01",
+        "🇺🇸 纽约02",
+        "🇺🇸 纽约03",
+        "🇺🇸 拉斯维加斯01",
+        "🇺🇸 拉斯维加斯02",
+        "🇺🇸 凤凰城01",
+        "🇺🇸 凤凰城02",
+        "🇺🇸 凤凰城03",
+        "🇺🇸 凤凰城04",
+        "🇺🇸 凤凰城05"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "tag": "🔯 其他自动",
+      "type": "urltest",
+      "outbounds": [
+        "🇨🇦 加拿大01",
+        "🇨🇦 加拿大02"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "tag": "♻️ 自动选择",
+      "type": "urltest",
+      "outbounds": [
+        "建议每次使用前都更新一下订阅",
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇹🇼 🇨🇳台湾1-Gpt",
+        "🇹🇼 🇨🇳台湾2-Gpt",
+        "🇹🇼 🇨🇳台湾3-Gpt",
+        "🇯🇵 日本1",
+        "🇰🇷 韩国首尔",
+        "🇰🇷 韩国春川",
+        "🇺🇸 拉斯维加斯",
+        "🇺🇸 纽约",
+        "🇺🇸 凤凰城",
+        "🇭🇰 香港01-IPv6",
+        "🇭🇰 香港02-IPv6",
+        "🇭🇰 香港03-IPv6",
+        "🇭🇰 香港05-IPv6",
+        "🇭🇰 香港06-IPv6",
+        "🇭🇰 香港07-IPv6",
+        "🇭🇰 香港09-奈飞",
+        "🇭🇰 香港10-奈飞",
+        "🇭🇰 香港11-奈飞",
+        "🇸🇬 新加坡01",
+        "🇸🇬 新加坡02",
+        "🇸🇬 新加坡04",
+        "🇸🇬 新加坡05",
+        "🇰🇷 韩国首尔01",
+        "🇰🇷 韩国首尔02",
+        "🇰🇷 韩国春川03",
+        "🇰🇷 韩国春川04",
+        "🇹🇼 🇨🇳台湾01-Gpt",
+        "🇹🇼 🇨🇳台湾02-Gpt",
+        "🇹🇼 🇨🇳台湾03-Gpt",
+        "🇹🇼 🇨🇳台湾04-Gpt",
+        "🇯🇵 东京01",
+        "🇯🇵 东京02",
+        "🇯🇵 日本03",
+        "🇯🇵 日本04",
+        "🇨🇦 加拿大01",
+        "🇨🇦 加拿大02",
+        "🇺🇸 纽约01",
+        "🇺🇸 纽约02",
+        "🇺🇸 纽约03",
+        "🇺🇸 拉斯维加斯01",
+        "🇺🇸 拉斯维加斯02",
+        "🇺🇸 凤凰城01",
+        "🇺🇸 凤凰城02",
+        "🇺🇸 凤凰城03",
+        "🇺🇸 凤凰城04",
+        "🇺🇸 凤凰城05"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "tag": "GLOBAL",
+      "type": "selector",
+      "outbounds": [
+        "建议每次使用前都更新一下订阅",
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇹🇼 🇨🇳台湾1-Gpt",
+        "🇹🇼 🇨🇳台湾2-Gpt",
+        "🇹🇼 🇨🇳台湾3-Gpt",
+        "🇯🇵 日本1",
+        "🇰🇷 韩国首尔",
+        "🇰🇷 韩国春川",
+        "🇺🇸 拉斯维加斯",
+        "🇺🇸 纽约",
+        "🇺🇸 凤凰城",
+        "🇭🇰 香港01-IPv6",
+        "🇭🇰 香港02-IPv6",
+        "🇭🇰 香港03-IPv6",
+        "🇭🇰 香港04-0.5x",
+        "🇭🇰 香港05-IPv6",
+        "🇭🇰 香港06-IPv6",
+        "🇭🇰 香港07-IPv6",
+        "🇭🇰 香港08-0.5x",
+        "🇭🇰 香港09-奈飞",
+        "🇭🇰 香港10-奈飞",
+        "🇭🇰 香港11-奈飞",
+        "🇭🇰 香港12-0.5x",
+        "🇸🇬 新加坡01",
+        "🇸🇬 新加坡02",
+        "🇸🇬 新加坡03-0.5x",
+        "🇸🇬 新加坡04",
+        "🇸🇬 新加坡05",
+        "🇸🇬 新加坡06-0.5x",
+        "🇰🇷 韩国首尔01",
+        "🇰🇷 韩国首尔02",
+        "🇰🇷 韩国春川03",
+        "🇰🇷 韩国春川04",
+        "🇰🇷 韩国春川05-0.5x",
+        "🇹🇼 🇨🇳台湾01-Gpt",
+        "🇹🇼 🇨🇳台湾02-Gpt",
+        "🇹🇼 🇨🇳台湾03-Gpt",
+        "🇹🇼 🇨🇳台湾04-Gpt",
+        "🇯🇵 东京01",
+        "🇯🇵 东京02",
+        "🇯🇵 日本03",
+        "🇯🇵 日本04",
+        "🇨🇦 加拿大01",
+        "🇨🇦 加拿大02",
+        "🇺🇸 纽约01",
+        "🇺🇸 纽约02",
+        "🇺🇸 纽约03",
+        "🇺🇸 拉斯维加斯01",
+        "🇺🇸 拉斯维加斯02",
+        "🇺🇸 凤凰城01",
+        "🇺🇸 凤凰城02",
+        "🇺🇸 凤凰城03",
+        "🇺🇸 凤凰城04",
+        "🇺🇸 凤凰城05",
+        "🇺🇸 纽约01-下载&防失联-0.1X",
+        "🇺🇸 纽约02-下载&防失联-0.1X",
+        "🇺🇸 纽约03-下载&防失联-0.1X",
+        "🇺🇸 纽约04-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯01-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯02-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯03-下载&防失联-0.1X",
+        "🇺🇸 拉斯维加斯04-下载&防失联-0.1X"
+      ]
+    },
+    {
+      "tag": "🎯 全球直连",
+      "type": "direct"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    },
+    {
+      "tag": "建议每次使用前都更新一下订阅",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 29527,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇸🇬 新加坡1",
+      "type": "hysteria2",
+      "server": "linsg1.jueduibupao.top",
+      "server_port": 45836,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "linsg1.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡2",
+      "type": "hysteria2",
+      "server": "linsg2.jueduibupao.top",
+      "server_port": 48406,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "linsg2.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳台湾1-Gpt",
+      "type": "hysteria2",
+      "server": "tw2.jueduibupao.top",
+      "server_port": 30052,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "tw2.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳台湾2-Gpt",
+      "type": "hysteria2",
+      "server": "tw22.jueduibupao.top",
+      "server_port": 30104,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "tw22.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳台湾3-Gpt",
+      "type": "hysteria2",
+      "server": "twhinet.jueduibupao.top",
+      "server_port": 43960,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "twhinet.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 日本1",
+      "type": "hysteria2",
+      "server": "linjp1.jueduibupao.top",
+      "server_port": 42029,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "linjp1.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇰🇷 韩国首尔",
+      "type": "hysteria2",
+      "server": "6bkr1.6bnw.top",
+      "server_port": 20101,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "6bkr1.6bnw.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇰🇷 韩国春川",
+      "type": "hysteria2",
+      "server": "6bkr2.6bnw.top",
+      "server_port": 20101,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "6bkr2.6bnw.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇺🇸 拉斯维加斯",
+      "type": "hysteria2",
+      "server": "lvs.jueduibupao.top",
+      "server_port": 50001,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "lvs.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇺🇸 纽约",
+      "type": "hysteria2",
+      "server": "ny.jueduibupao.top",
+      "server_port": 50001,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "ny.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇺🇸 凤凰城",
+      "type": "hysteria2",
+      "server": "azcus1.jueduibupao.top",
+      "server_port": 20101,
+      "password": "8be54696-4698-4a73-a252-680287f28e22",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "azcus1.jueduibupao.top",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇭🇰 香港01-IPv6",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 29527,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港02-IPv6",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40010,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港03-IPv6",
+      "type": "shadowsocks",
+      "server": "hzhz3.sssyun.xyz",
+      "server_port": 54511,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港04-0.5x",
+      "type": "vless",
+      "server": "22.6bnw.top",
+      "server_port": 2052,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "apper50t.6bnw.top"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇭🇰 香港05-IPv6",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 19527,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港06-IPv6",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40023,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港07-IPv6",
+      "type": "shadowsocks",
+      "server": "hzhz3.sssyun.xyz",
+      "server_port": 54512,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港08-0.5x",
+      "type": "vmess",
+      "server": "22.6bnw.top",
+      "server_port": 2052,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "polohk.6bnw.top"
+        },
+        "path": "/cctv",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 香港09-奈飞",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39301,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港10-奈飞",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40011,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港11-奈飞",
+      "type": "shadowsocks",
+      "server": "hzhz3.sssyun.xyz",
+      "server_port": 54513,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇭🇰 香港12-0.5x",
+      "type": "vmess",
+      "server": "22.6bnw.top",
+      "server_port": 2052,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "akhksm.6bnw.top"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡01",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39204,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇸🇬 新加坡02",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40013,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇸🇬 新加坡03-0.5x",
+      "type": "vmess",
+      "server": "22.6bnw.top",
+      "server_port": 2082,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "aksg.6bnw.top"
+        },
+        "path": "/cctv",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡04",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39505,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇸🇬 新加坡05",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40014,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇸🇬 新加坡06-0.5x",
+      "type": "vless",
+      "server": "22.6bnw.top",
+      "server_port": 2052,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "sjysg.6bnw.top"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇰🇷 韩国首尔01",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39202,
+      "method": "chacha20-ietf-poly1305",
+      "password": "8be54696-4698-4a73-a252-680287f28e22"
+    },
+    {
+      "tag": "🇰🇷 韩国首尔02",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40015,
+      "method": "chacha20-ietf-poly1305",
+      "password": "8be54696-4698-4a73-a252-680287f28e22"
+    },
+    {
+      "tag": "🇰🇷 韩国春川03",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39206,
+      "method": "chacha20-ietf-poly1305",
+      "password": "8be54696-4698-4a73-a252-680287f28e22"
+    },
+    {
+      "tag": "🇰🇷 韩国春川04",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40016,
+      "method": "chacha20-ietf-poly1305",
+      "password": "8be54696-4698-4a73-a252-680287f28e22"
+    },
+    {
+      "tag": "🇰🇷 韩国春川05-0.5x",
+      "type": "vmess",
+      "server": "22.6bnw.top",
+      "server_port": 2082,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "xzkr.6bnw.top"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳台湾01-Gpt",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 32207,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "NjVhMWE2YmVmNzg4MTcwMA==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇹🇼 🇨🇳台湾02-Gpt",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40017,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "NjVhMWE2YmVmNzg4MTcwMA==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇹🇼 🇨🇳台湾03-Gpt",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39201,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "NjVhMWE2YmVmNzg4MTcwMA==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇹🇼 🇨🇳台湾04-Gpt",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40018,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "NjVhMWE2YmVmNzg4MTcwMA==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇯🇵 东京01",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 19529,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇯🇵 东京02",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40019,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇯🇵 日本03",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 49207,
+      "method": "2022-blake3-aes-256-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNjE5OWQyNDYxZjM1MjA0OTg=:OGJlNTQ2OTYtNDY5OC00YTczLWEyNTItNjgwMjg3ZjI="
+    },
+    {
+      "tag": "🇯🇵 日本04",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40020,
+      "method": "2022-blake3-aes-256-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNjE5OWQyNDYxZjM1MjA0OTg=:OGJlNTQ2OTYtNDY5OC00YTczLWEyNTItNjgwMjg3ZjI="
+    },
+    {
+      "tag": "🇨🇦 加拿大01",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39209,
+      "method": "chacha20-ietf-poly1305",
+      "password": "8be54696-4698-4a73-a252-680287f28e22"
+    },
+    {
+      "tag": "🇨🇦 加拿大02",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40021,
+      "method": "chacha20-ietf-poly1305",
+      "password": "8be54696-4698-4a73-a252-680287f28e22"
+    },
+    {
+      "tag": "🇺🇸 纽约01",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 12980,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇺🇸 纽约02",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 12981,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇺🇸 纽约03",
+      "type": "shadowsocks",
+      "server": "hzhz3.sssyun.xyz",
+      "server_port": 12982,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇺🇸 拉斯维加斯01",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 12983,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇺🇸 拉斯维加斯02",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 12984,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇺🇸 凤凰城01",
+      "type": "shadowsocks",
+      "server": "hzhz1.sssyun.xyz",
+      "server_port": 39203,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇺🇸 凤凰城02",
+      "type": "shadowsocks",
+      "server": "hzhz2.sssyun.xyz",
+      "server_port": 40022,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "MDhhMTdjZDI0MjI2ZWRlNg==:OGJlNTQ2OTYtNDY5OC00YQ=="
+    },
+    {
+      "tag": "🇺🇸 凤凰城03",
+      "type": "vless",
+      "server": "22.6bnw.top",
+      "server_port": 2052,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "azcus.6bnw.top"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇺🇸 凤凰城04",
+      "type": "vless",
+      "server": "33.6bnw.top",
+      "server_port": 2052,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "azcus.6bnw.top"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇺🇸 凤凰城05",
+      "type": "vless",
+      "server": "4.6bnw.top",
+      "server_port": 2052,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "azcus.6bnw.top"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇺🇸 纽约01-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen11.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus.6bnw.top"
+        },
+        "path": "/cctv",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇺🇸 纽约02-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen22.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus.6bnw.top"
+        },
+        "path": "/cctv",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇺🇸 纽约03-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen33.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus.6bnw.top"
+        },
+        "path": "/cctv",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇺🇸 纽约04-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen44.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus.6bnw.top"
+        },
+        "path": "/cctv",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇺🇸 拉斯维加斯01-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen11.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus2.6bnw.top"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇺🇸 拉斯维加斯02-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen22.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus2.6bnw.top"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇺🇸 拉斯维加斯03-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen33.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus2.6bnw.top"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "🇺🇸 拉斯维加斯04-下载&防失联-0.1X",
+      "type": "vmess",
+      "server": "mugen44.6bnw.top",
+      "server_port": 8080,
+      "uuid": "8be54696-4698-4a73-a252-680287f28e22",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "buyvmus2.6bnw.top"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "🐠 漏网之鱼",
+    "rules": [
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "GLOBAL"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": [
+          "geosite-private",
+          "geoip-private"
+        ],
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": "geosite-chat",
+        "outbound": "🤖 OpenAI"
+      },
+      {
+        "rule_set": "geosite-github",
+        "outbound": "👨‍💻 Github"
+      },
+      {
+        "rule_set": "geosite-youtube",
+        "outbound": "📹 YouTube"
+      },
+      {
+        "rule_set": "geosite-onedrive",
+        "outbound": "🐬 OneDrive"
+      },
+      {
+        "rule_set": "geosite-microsoft",
+        "outbound": "🪟 Microsoft"
+      },
+      {
+        "rule_set": [
+          "geoip-google",
+          "geosite-google"
+        ],
+        "outbound": "🍀 Google"
+      },
+      {
+        "rule_set": "geosite-tiktok",
+        "outbound": "🎵 TikTok"
+      },
+      {
+        "rule_set": [
+          "geoip-apple",
+          "geosite-apple"
+        ],
+        "outbound": "🍏 Apple"
+      },
+      {
+        "rule_set": [
+          "geoip-netflix",
+          "geosite-netflix"
+        ],
+        "outbound": "🎥 Netflix"
+      },
+      {
+        "rule_set": [
+          "geoip-telegram",
+          "geosite-telegram"
+        ],
+        "outbound": "📲 Telegram"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "rule_set": [
+          "geoip-cn",
+          "geosite-cn"
+        ],
+        "outbound": "🎯 全球直连"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-chat",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-youtube",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-github",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/github.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/telegram.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-tiktok",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/tiktok.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-netflix",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/netflix.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-apple",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-microsoft",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/microsoft.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-onedrive",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/onedrive.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/private.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geoip-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/google.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geoip-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geoip-netflix",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geoip-apple",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/apple.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "tag": "geoip-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/private.srs",
+        "download_detour": "🎯 全球直连"
+      }
+    ]
+  }
+}
