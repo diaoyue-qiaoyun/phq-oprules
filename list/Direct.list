@@ -1,4 +1,13 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
+DOMAIN-SUFFIX,ddns.oray.com
+DOMAIN-SUFFIX,4.ipw.cn
+DOMAIN-SUFFIX,v4.ip.zxinc.org
+DOMAIN-SUFFIX,myip4.ipip.net
+DOMAIN-SUFFIX,ip.3322.net
+DOMAIN-SUFFIX,www.taobao.com
+DOMAIN-SUFFIX,v4.myip.la
+DOMAIN-SUFFIX,ipv4.ddnspod.com
+DOMAIN-SUFFIX,v4.66666.host:66
 
 # MyList
 # 域名后缀匹配
